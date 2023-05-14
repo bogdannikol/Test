@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Scanner;// Для теста 12.05.2023
 public class Test {
     public static void main(String[] args) throws RuntimeException {
         Scanner scanner = new Scanner(System.in);
@@ -6,7 +6,8 @@ public class Test {
         String str1 = scanner.nextLine();
         String[] strings = str1.split(" ");
         int size = strings.length;
-        if (size==1){
+
+        if (size==1|size==2){
             throw new ArithmeticException("Строка не является математической операцией!");
         }
         if (size>3){
@@ -30,7 +31,7 @@ public class Test {
            if (strings[1].hashCode() == 47) System.out.println(ar1 / ar2);
            if (strings[1].hashCode() == 43) System.out.println(ar1 + ar2);
            if (strings[1].hashCode() == 45) System.out.println(ar1 - ar2);
-           else System.exit(0);
+           System.exit(0);
             }
         String a = strings[0];
         String b = strings[2];
@@ -97,7 +98,7 @@ public class Test {
               System.out.println(found);
               System.exit(0);
           }
-          else if ((num1 > 10 | num1 > 10)) {
+          else if ((num1 > 10 | num2 > 10)) {
               throw new ArithmeticException("Введённое число больше допустимого!!!\nДиапазон чисел от 1 до 10");
           }
     }
