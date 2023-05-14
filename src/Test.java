@@ -1,4 +1,4 @@
-import java.util.Scanner;// Для теста 12.05.2023
+import java.util.Scanner;// Для теста 2023.05.14.
 public class Test {
     public static void main(String[] args) throws RuntimeException {
         Scanner scanner = new Scanner(System.in);
@@ -27,10 +27,18 @@ public class Test {
                 throw new ArithmeticException("Введённое число больше допустимого!!!\nДиапазон чисел от 1 до 10");
             }
 
-           if (strings[1].hashCode() == 42) System.out.println(ar1 * ar2);
-           if (strings[1].hashCode() == 47) System.out.println(ar1 / ar2);
-           if (strings[1].hashCode() == 43) System.out.println(ar1 + ar2);
-           if (strings[1].hashCode() == 45) System.out.println(ar1 - ar2);
+           if (strings[1].hashCode() == 42) {
+               System.out.println(ar1 * ar2);
+           }
+           if (strings[1].hashCode() == 47) {
+               System.out.println(ar1 / ar2);
+           }
+           if (strings[1].hashCode() == 43) {
+               System.out.println(ar1 + ar2);
+           }
+           if (strings[1].hashCode() == 45) {
+               System.out.println(ar1 - ar2);
+           }
            System.exit(0);
             }
         String a = strings[0];
