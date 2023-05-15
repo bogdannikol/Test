@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Scanner;// Test Калькулятор тестовое задание. 2023.04.15.
 public class Test {
     public static void main(String[] args) throws RuntimeException {
         Scanner scanner = new Scanner(System.in);
