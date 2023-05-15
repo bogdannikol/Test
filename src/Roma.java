@@ -34,7 +34,7 @@ public enum Roma {
     XCII(92), XCIII(93), XCIV(94), XCV(95), XCVI(96), XCVII(97),
     XCVIII(98), XCIX(99), C(100);
 
-  private final int translation;
+  private int translation;
     Roma(int translation){
         this.translation = translation;
     }

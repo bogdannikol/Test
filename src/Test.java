@@ -1,16 +1,15 @@
-import java.util.Scanner;// Для теста 2023.05.14.
+import java.util.Scanner;
 public class Test {
     public static void main(String[] args) throws RuntimeException {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите числа римские или арабские от 1 до 10 в формате:\nчисло1 пробел оперант пробел число2: ");
         String str1 = scanner.nextLine();
         String[] strings = str1.split(" ");
-        int size = strings.length;
-
-        if (size==1|size==2){
+        int stroka = strings.length;
+        if (stroka == 1){
             throw new ArithmeticException("Строка не является математической операцией!");
         }
-        if (size>3){
+        if (stroka > 3){
             throw new ArithmeticException("В операции должно быть два операнда и один оператор (+, -, /, *)");
         }
         String arab1 = strings[0];
@@ -23,34 +22,41 @@ public class Test {
         if (proverka.matches("^[0-9]*$")) {
             int ar1=Integer.parseInt(arab1);
             int ar2=Integer.parseInt(arab2);
-            if (ar1>10 ||ar2>10) {
+
+            if (ar1 > 10 ||ar2 > 10) {
                 throw new ArithmeticException("Введённое число больше допустимого!!!\nДиапазон чисел от 1 до 10");
             }
 
-           if (strings[1].hashCode() == 42) {
-               System.out.println(ar1 * ar2);
-           }
-           if (strings[1].hashCode() == 47) {
-               System.out.println(ar1 / ar2);
-           }
-           if (strings[1].hashCode() == 43) {
-               System.out.println(ar1 + ar2);
-           }
-           if (strings[1].hashCode() == 45) {
-               System.out.println(ar1 - ar2);
-           }
-           System.exit(0);
-            }
+               if (strings[1].hashCode() == 42) {
+                   System.out.println(ar1 * ar2);
+               }
+               if (strings[1].hashCode() == 47) {
+                   System.out.println(ar1 / ar2);
+               }
+               if (strings[1].hashCode() == 43) {
+                   System.out.println(ar1 + ar2);
+               }
+               if (strings[1].hashCode() == 45) {
+                   System.out.println(ar1 - ar2);
+               }
+               else System.exit(0);
+        }
         String a = strings[0];
         String b = strings[2];
-            Roma perevod1 = Roma.valueOf(a);
-            Roma perevod2 = Roma.valueOf(b);
-            int num1=perevod1.getTranslation();
-            int num2=perevod2.getTranslation();
-            int hesh=strings[1].hashCode();
-            int otvet;
-          if  (num1<=10 && num2<=10 && hesh == 42) {
+        Roma perevod1 = Roma.valueOf(a);
+        Roma perevod2 = Roma.valueOf(b);
+
+        int num1=perevod1.getTranslation();
+        int num2=perevod2.getTranslation();
+        int hash=strings[1].hashCode();
+        int otvet;
+
+        if ((num1 > 10 | num2 > 10)) {
+            throw new ArithmeticException("Введённое число больше допустимого!!!\nДиапазон чисел от 1 до 10");
+        }
+        if  (hash == 42) {
               otvet = num1 * num2;
+
               Roma[] romas = Roma.values();
               Roma found = null;
               for (Roma roma : romas) {
@@ -58,11 +64,12 @@ public class Test {
                       found = roma;
                   }
               }
-              System.out.println(found);
-              System.exit(0);
-          }
-          else if (num1 <= 10 && num2<= 10 && hesh == 43) {
+             System.out.println(found);
+             System.exit(0);
+        }
+        if (hash == 43) {
                   otvet = num1 + num2;
+
               Roma[] romas = Roma.values();
               Roma found = null;
               for (Roma roma : romas) {
@@ -70,15 +77,15 @@ public class Test {
                       found = roma;
                   }
               }
-              System.out.println(found);
-              System.exit(0);
-          }
-          else if (num1<=10 && num2<=10 && hesh==45) {
+             System.out.println(found);
+             System.exit(0);
+        }
+        if (hash == 45) {
                if (num1 < num2){
                    throw new ArithmeticException("В римскиих числах нет отрицательного знака!");
                }
                       otvet = num1 - num2;
-              if (otvet==0){
+              if (otvet == 0){
                   throw new ArithmeticException("В римских цифрах нет нулевого значения!");
               }
               Roma[] romas = Roma.values();
@@ -88,10 +95,10 @@ public class Test {
                       found = roma;
                   }
               }
-              System.out.println(found);
-              System.exit(0);
-          }
-          else if (num1 <= 10 && num2 <= 10 && hesh == 47) {
+             System.out.println(found);
+             System.exit(0);
+        }
+        if (hash == 47) {
               otvet = num1 / num2;
               Roma[] romas = Roma.values();
               Roma found = null;
@@ -100,14 +107,8 @@ public class Test {
                       found = roma;
                   }
               }
-              if (otvet<1){
-                  throw new ArithmeticException("В римских цифрах нет нулевого значения!");
-              }
-              System.out.println(found);
-              System.exit(0);
-          }
-          else if ((num1 > 10 | num2 > 10)) {
-              throw new ArithmeticException("Введённое число больше допустимого!!!\nДиапазон чисел от 1 до 10");
-          }
+             System.out.println(found);
+             System.exit(0);
+        }
     }
 }
